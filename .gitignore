@@ -1,0 +1,28 @@
+#java specific
+*.class
+
+#python specific
+*.pyc
+
+#netbeans ignore personal stuff 
+nbproject/private/
+
+# maven
+target/
+
+#eclipse
+*.pydevproject
+.project
+.metadata
+.classpath
+.settings/
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+#GWT
+.gwt
