@@ -7,15 +7,21 @@ gwt-youtube
 --------
 Inherit GWT module ```	<inherits name="open.pandurang.gwt.youtube.YouTube" /> ```
 
-Before you start using YouTube iframe library one need to load them first, so as to load the library first you need make call to ```YouTubePlayer.loadYouTubeIframeApi();```. This will ensure library is loaded, you can register to recieve event when library is loaded completely by using ``` ApiReadyEventHandler ``` for more details on the same refer YouTube documentation's [geting started](https://developers.google.com/youtube/iframe_api_reference#Requirements) section. This 
+Before you start using YouTube iframe library one need to load them first, so as to load the library first you need make call to ```YouTubePlayer.loadYouTubeIframeApi();```. This will ensure library is loaded, you can register to recieve event when library is loaded completely by using ``` ApiReadyEventHandler ``` for more details on the same refer YouTube documentation's [geting started](https://developers.google.com/youtube/iframe_api_reference#Requirements) section. This ApiReadyEvent is equivalent to ```onYouTubeIframeAPIReady``` javascript callback.
 
 ```
-		YouTubePlayer.addApiReadyHandler(new ApiReadyEventHandler() {
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady(){}
+```
+```
+	YouTubePlayer.addApiReadyHandler(new ApiReadyEventHandler() {
 
 			public void onApiReady(ApiReadyEvent event) {
 			  // Action you want take after api is loaded.
 			}
-	  }
+	}
 ```
 Note: Please make sure you load iframe library well in advance before using YouTube Player.
 
