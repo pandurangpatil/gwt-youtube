@@ -18,11 +18,13 @@ import open.pandurang.gwt.youtube.client.ApiReadyEventHandler;
 import open.pandurang.gwt.youtube.client.PlayerConfiguration;
 import open.pandurang.gwt.youtube.client.PlayerReadyEvent;
 import open.pandurang.gwt.youtube.client.PlayerReadyEventHandler;
+import open.pandurang.gwt.youtube.client.PlayerVariables;
 import open.pandurang.gwt.youtube.client.StateChangeEvent;
 import open.pandurang.gwt.youtube.client.StateChangeEventHandler;
 import open.pandurang.gwt.youtube.client.YouTubePlayer;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -76,8 +78,27 @@ public class YouTube implements EntryPoint {
 				RootPanel.get().add(btn);
 				config = (PlayerConfiguration) PlayerConfiguration.createObject();
 				config.setVideoId("4biVZcgCn9A");
-				YouTubePlayer player1 = new YouTubePlayer(config);
+				PlayerVariables playerVars = (PlayerVariables) PlayerVariables.createObject();
+
+				playerVars.setControls(0);
+				playerVars.setRel(0);
+				playerVars.setShowInfo(0);
+				playerVars.setShowInfo(0);
+				config.setPlayerVars(playerVars);
+				final YouTubePlayer player1 = new YouTubePlayer(config);
 				RootPanel.get().add(player1);
+
+				Button btnCue = new Button("Cue");
+				btnCue.addClickHandler(new ClickHandler() {
+
+					public void onClick(ClickEvent event) {
+						JsArrayString list = (JsArrayString) JsArrayString.createArray();
+						list.push("tQIBhsDlTxU");
+						list.push("4jGFreAGRI4");
+						player1.getPlayer().cuePlaylist(list);
+					}
+				});
+				RootPanel.get().add(btnCue);
 
 			}
 		});

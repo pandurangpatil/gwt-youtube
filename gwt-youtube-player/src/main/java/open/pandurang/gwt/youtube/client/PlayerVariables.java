@@ -16,6 +16,12 @@ package open.pandurang.gwt.youtube.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
+ * GWT OverLay type wrapper over Player parameters JavaScript object defined by YouTube api.
+ * 
+ * For more details refer
+ * 
+ * https://developers.google.com/youtube/player_parameters
+ * 
  * @author Pandurang Patil 22-Mar-2014
  * 
  */
