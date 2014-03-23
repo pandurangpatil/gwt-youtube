@@ -31,4 +31,11 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Internal Repository</name>
+			<url>file:///Users/pandurang/projects/pandurang-mvn-repo/releases</url>
+		</repository>
+	</distributionManagement>
 </project>
