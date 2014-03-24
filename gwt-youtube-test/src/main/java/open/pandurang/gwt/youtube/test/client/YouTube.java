@@ -95,7 +95,7 @@ public class YouTube implements EntryPoint {
 						JsArrayString list = (JsArrayString) JsArrayString.createArray();
 						list.push("tQIBhsDlTxU");
 						list.push("4jGFreAGRI4");
-						player1.getPlayer().cuePlaylist(list);
+						player1.getPlayer().cuePlaylist(list, 0, 0, "highres");
 					}
 				});
 				RootPanel.get().add(btnCue);

@@ -52,7 +52,6 @@ public class YouTubePlayer extends Composite {
 	private Player						player;
 	// Player configuration
 	private final PlayerConfiguration	playerConfiguration;
-
 	static {
 		loadYouTubeIframeApi();
 	}
@@ -214,6 +213,12 @@ public class YouTubePlayer extends Composite {
 	protected void onLoad() {
 		super.onLoad();
 		player = Player.createPlayer(divId, playerConfiguration);
+	}
+
+	@Override
+	protected void onUnload() {
+		super.onUnload();
+		player.destroy();
 	}
 
 	public Player getPlayer() {
