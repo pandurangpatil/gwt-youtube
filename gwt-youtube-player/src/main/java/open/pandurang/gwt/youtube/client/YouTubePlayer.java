@@ -67,7 +67,6 @@ public class YouTubePlayer extends Composite {
 	private Player						player;
 	// Player configuration
 	private final PlayerConfiguration	playerConfiguration;
-
 	static {
 		ScriptInjector.fromString(JsHelperResource.INSTANCE.youtube().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 		loadYouTubeIframeApi();
@@ -230,6 +229,12 @@ public class YouTubePlayer extends Composite {
 	protected void onLoad() {
 		super.onLoad();
 		player = Player.createPlayer(divId, playerConfiguration);
+	}
+
+	@Override
+	protected void onUnload() {
+		super.onUnload();
+		player.destroy();
 	}
 
 	public Player getPlayer() {

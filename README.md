@@ -96,7 +96,7 @@ Fore more details refer [test sample project](https://github.com/pandurangpatil/
 		<dependency>
 			<groupId>open.pandurang.gwt</groupId>
 			<artifactId>gwt-youtube-player</artifactId>
-			<version>0.1</version>
+			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
 ```
