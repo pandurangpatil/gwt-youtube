@@ -16,14 +16,19 @@ package open.pandurang.gwt.youtube.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.TextResource;
+import com.google.gwt.resources.client.ClientBundle.Source;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
+
 
 /**
  * YouTube Iframe Player container.
@@ -32,6 +37,16 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  * 
  */
 public class YouTubePlayer extends Composite {
+	
+	
+	public interface JsHelperResource extends ClientBundle {
+		public static JsHelperResource INSTANCE = GWT.create(JsHelperResource.class);
+		@Source("youtube.js")
+		public TextResource youtube();
+	}
+
+	
+	
 	interface MyUiBinder extends UiBinder<Widget, YouTubePlayer> {
 	}
 
@@ -54,6 +69,7 @@ public class YouTubePlayer extends Composite {
 	private final PlayerConfiguration	playerConfiguration;
 
 	static {
+		ScriptInjector.fromString(JsHelperResource.INSTANCE.youtube().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 		loadYouTubeIframeApi();
 	}
 
