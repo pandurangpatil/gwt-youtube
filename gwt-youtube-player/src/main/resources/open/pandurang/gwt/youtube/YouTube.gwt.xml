@@ -6,5 +6,5 @@
 	<!-- Specify the paths for translatable code -->
 	<source path='client' />
 	<public path="public" />
-	<script src="youtube.js" />
+<!-- NO MORE USED ... alberto	<script src="youtube.js" /> -->
 </module>
